@@ -1,0 +1,70 @@
+.nav {
+  border-bottom: 1px solid var(--color-gray-300);
+  display: flex;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.nav__date-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.nav__controls {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.nav__arrows {
+  display: flex;
+  gap: 0.125rem;
+}
+
+/* Use the mint green color for the small arrow buttons in the header */
+.nav__arrows .button {
+  background-color: #81AB9D;
+  color: #ffffff;
+  border: 1px solid #81AB9D;
+}
+.nav__arrows .button:hover {
+  background-color: #6E9B88;
+  border-color: #6E9B88;
+}
+
+/* Style the 'Hoy' button specifically to use mint green */
+.nav__controls [data-nav-today-button].desktop-only {
+  background-color: #81AB9D;
+  color: #ffffff;
+  border: 1px solid #81AB9D;
+  padding: 0.5rem 0.75rem;
+}
+.nav__controls [data-nav-today-button].desktop-only:hover {
+  background-color: #6E9B88;
+  border-color: #6E9B88;
+}
+
+.nav__date {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    justify-content: space-between;
+    gap: 0;
+    padding: 0.5rem;
+  }
+
+  .nav__date-info {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .nav__controls {
+    gap: 0.5rem;
+  }
+}

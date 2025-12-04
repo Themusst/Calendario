@@ -1,0 +1,110 @@
+.mini-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Make mini-calendar surface and day backgrounds white (not mint) */
+.mini-calendar,
+.mini-calendar__day-list,
+.mini-calendar__day-list-item,
+.mini-calendar__day {
+  background-color: transparent; /* container left transparent so parent surface shows through */
+}
+
+.mini-calendar__content {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mini-calendar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-calendar__date {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.mini-calendar__controls {
+  display: flex;
+  gap: 0.125rem;
+}
+
+/* Make the mini-calendar prev/next buttons use the mint green color */
+.mini-calendar__controls .button {
+  background-color: #81AB9D;
+  color: #ffffff;
+  border: 1px solid #81AB9D;
+}
+.mini-calendar__controls .button:hover {
+  background-color: #6E9B88;
+  border-color: #6E9B88;
+}
+
+.mini-calendar__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mini-calendar__day-of-week-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.mini-calendar__day-of-week {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: 500;
+}
+
+.mini-calendar__day-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.mini-calendar__day-list-item {
+  text-align: center;
+}
+
+.mini-calendar__day {
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 0.25rem;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: 500;
+  color: #4F2F26;
+}
+
+.mini-calendar__day--other {
+  color: var(--color-gray-500);
+}
+
+.mini-calendar__day--highlight {
+  /* Highlight current day */
+  border-color: #81AB9D;
+  background-color: #E4EFDF;
+  color: #4F2F26;
+  font-weight: 600;
+}
+
+/* Make the selected day in the mini-calendar visually identifiable.
+   The JS adds `button--primary` to the selected day; target that combination
+   so real buttons are not affected. Use a mint fill and brown border for clarity. */
+.mini-calendar__day.button--primary {
+  /* user requested: mini-calendar selected day uses mint green */
+  background-color: #81AB9D;
+  border-color: #81AB9D;
+  color: #ffffff; /* ensure contrast */
+}

@@ -1,0 +1,152 @@
+.select {
+  position: relative;
+  /* Harmonize selects with palette */
+  color: var(--text-primary);
+}
+
+.select--fill {
+  width: 100%;
+}
+
+.select__select {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: 400;
+  color: var(--text-primary);
+  /* selectors: use explicit white background per request */
+  background-color: #ffffff;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  padding: 0 2rem 0 0.75rem;
+  height: 2.125rem;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* Style native option list to match the theme. Note: some browsers may still show a system highlight color for native dropdowns. */
+.select__select option {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+}
+
+.select__select option:checked,
+.select__select option:active,
+.select__select option:hover,
+.select__select option:focus {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+}
+
+/* Firefox: avoid the bright blue focus ring covering option text */
+.select__select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 var(--text-primary);
+}
+
+/* Custom select dropdown (replaces native select at runtime) */
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select__button {
+  width: auto; /* keep natural width of the control container, do not force full width */
+  min-width: 9rem; /* ensure readable minimum (longer controls) */
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  /* Use white background for custom selects */
+  background: #ffffff;
+  color: var(--text-primary);
+  border: 1.5px solid #E4EFDF;
+  padding: 0 1rem;
+  height: 2.5rem; /* larger for visibility */
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border-radius: calc(var(--border-radius-lg));
+  cursor: pointer;
+  box-shadow: var(--box-shadow-md);
+}
+
+/* When a select uses the fill modifier, make the custom button span the available width */
+.select--fill .custom-select__button {
+  width: 100%;
+}
+
+/* Native select fallbacks: ensure minimum width and full-width behaviour for fill variant */
+.select__select {
+  min-width: 9rem;
+}
+.select--fill .select__select {
+  width: 100%;
+}
+
+.custom-select__value {
+  pointer-events: none;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-select__list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0.35rem 0 0 0;
+  list-style: none;
+  background: #ffffff;
+  border: 1.5px solid var(--border-color);
+  border-radius: calc(var(--border-radius-lg));
+  /* increase vertical length so more options are visible without scrolling */
+  max-height: 520px;
+  overflow: auto;
+  padding: 0.25rem 0;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+.custom-select.is-open .custom-select__list {
+  display: block;
+}
+
+.custom-select__item {
+  padding: 0.8rem 1rem; /* more vertical padding for larger visual weight */
+  cursor: pointer;
+  color: var(--primary-dark);
+  font-size: var(--font-size-md);
+}
+
+.custom-select__item.is-selected {
+  font-weight: 700;
+  /* stronger selected color using the deeper mint */
+  background: var(--color-blue-600);
+  color: var(--color-text-light);
+}
+
+.custom-select__item.is-focused,
+.custom-select__item:hover {
+  background: var(--color-blue-500);
+  color: var(--color-text-light);
+}
+
+.custom-select__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.select--fill .select__select {
+  width: 100%;
+}
+
+.select__icon {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  width: 1.125rem;
+  pointer-events: none;
+}
